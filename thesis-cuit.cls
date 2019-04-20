@@ -1,6 +1,6 @@
 \ProvidesClass{thesis-cuit}
 
-\LoadClass[12pt, openany, oneside]{ctexbook}
+\LoadClass[12pt, openany, oneside, UTF8]{ctexbook}
 
 \usepackage{ifplatform}
 \ifmacosx
