@@ -2,12 +2,15 @@
 
 \LoadClass{ctexart}
 
+\setmainfont{Times New Roman}
+
 \RequirePackage[
     left=3.17cm, right=3.17cm,
     top=2.54cm, bottom=2.54cm]{geometry}
 \RequirePackage{indentfirst}             % 段首缩进
 
 \linespread{2} % 行间距
+\setlength{\parindent}{2em} % 首行缩进
 
 \RequirePackage{array}
 
@@ -71,3 +74,15 @@ bookmarksdepth=4
     \end{center}
 }
 
+\newenvironment{chineseabstract}{
+    \thispagestyle{empty}
+    \pdfbookmark{中文摘要}{chineseabstract}
+
+    \begin{center}
+        {\zihao{3}\bfseries\songti \thetitle \\
+        摘 \chinesespace 要}
+    \end{center}
+}{}
+\newcommand{\chinesekeywords}[1]{
+    {\bfseries\songti\zihao{-4}关键字 \chinesecolon} #1
+}
