@@ -1,5 +1,6 @@
 % TODO
 % 1. 行距
+% 2. pdfbookmark 错乱
 
 
 \ProvidesClass{thesis-cuit}
@@ -20,6 +21,10 @@
 \RequirePackage{array}
 \RequirePackage{layout}
 
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{第 \thepage 页 \chinesespace 共 \pageref{LastPage} 页}
 \setlength{\parindent}{2em} % 首行缩进
 
 
@@ -34,6 +39,10 @@ bookmarksdepth=4
     linkcolor=black,
     urlcolor=black
 }
+
+\CTEXsetup[format={\bfseries\songti\zihao{-3}}, indent={0em}, aftername={\ }, afterskip={0.5ex}]{section}
+\CTEXsetup[format={\bfseries\songti\zihao{4}}, indent={1em}, aftername={\ }, afterskip={0.5ex}]{subsection}
+\CTEXsetup[format={\bfseries\songti\zihao{-4}}, indent={2em}, aftername={\ }, afterskip={0.5ex}]{subsubsection}
 
 \newcommand{\chinesecolon}{\char"FF1A}
 \newcommand{\chinesespace}{\char"3000}
@@ -131,5 +140,7 @@ bookmarksdepth=4
 
     \tableofcontents
 
+    \thispagestyle{empty}
     \setcounter{page}{0}
+    \clearpage
 }
