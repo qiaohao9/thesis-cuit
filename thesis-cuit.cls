@@ -19,6 +19,7 @@
     top=2.54cm, bottom=2.54cm]{geometry}
 \RequirePackage{indentfirst}
 \RequirePackage{lastpage}
+% \RequirePackage{titlesec}
 \RequirePackage{etoolbox}
 \RequirePackage{enumitem}
 \RequirePackage{titletoc}
@@ -29,6 +30,7 @@
 \RequirePackage{float}
 \RequirePackage{graphicx}
 \RequirePackage{layout}
+\RequirePackage{natbib}
 \RequirePackage{setspace}
 \RequirePackage[font={doublespacing, small}, labelsep=space, skip=6pt]{caption}
 \RequirePackage[hyperfootnotes=false,
@@ -169,7 +171,6 @@ bookmarksdepth=4
 
     \thispagestyle{empty}
     \setcounter{page}{0}
-    \bookmarksetupnext{level=0}
     \clearpage
 }
 
@@ -270,17 +271,8 @@ bookmarksdepth=4
     \addcontentsline{toc}{section}{声 \hspace{1em} 明}
 }{}
 
-\pretocmd{\bibliography}{
-  \thispagestyle{fancy}
-  \interlinepenalty=10000
-  \begin{spacing}{1.667}
-}{}{}
-
-\apptocmd{\bibliography}{
-  \end{spacing}
-}{}{}
-
 \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+\renewcommand{\bibsection}{{\centering\zihao{4}\songti\bfseries 参考文献}}
 \newcommand{\thesisloadbibliography}[2][]{
     \addtocontents{toc}{}
     \addcontentsline{toc}{section}{参考文献}
@@ -290,7 +282,9 @@ bookmarksdepth=4
         }{
         \nocite{*}
         }{}
-    {\zihao{2}
-    \bibliographystyle{plain}
-    \bibliography{#2}}
+    \begin{center}
+        \clearpage
+        \bibliographystyle{plain}
+        {\zihao{5}\songti \bibliography{#2}}
+    \end{center}
 }
