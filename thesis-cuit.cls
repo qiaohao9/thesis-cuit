@@ -1,3 +1,7 @@
+% TODO
+% 1. 行距
+
+
 \ProvidesClass{thesis-cuit}
 
 \LoadClass{ctexart}
@@ -7,12 +11,17 @@
 \RequirePackage[
     left=3.17cm, right=3.17cm,
     top=2.54cm, bottom=2.54cm]{geometry}
-\RequirePackage{indentfirst}             % 段首缩进
+\RequirePackage{indentfirst}
+\RequirePackage{lastpage}
 
-\linespread{2} % 行间距
+\RequirePackage{tocloft}
+\RequirePackage{titletoc}
+\RequirePackage{fancyhdr}
+\RequirePackage{array}
+\RequirePackage{layout}
+
 \setlength{\parindent}{2em} % 首行缩进
 
-\RequirePackage{array}
 
 \RequirePackage[hyperfootnotes=false,
 bookmarksnumbered,
@@ -98,4 +107,29 @@ bookmarksdepth=4
 }{}
 \newcommand{\englishkeywords}[1]{
     {\bfseries Key words:} #1
+}
+
+\renewcommand{\contentsname}{}
+\cftsetindents{subsection}{1em}{2em}
+\cftsetindents{subsubsection}{2em}{3em}
+\renewcommand{\cftsecnumwidth}{1em}
+\renewcommand{\cftsecfont}{\songti}
+\renewcommand{\cftsubsecfont}{\songti}
+\renewcommand{\cftsubsubsecfont}{\songti}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\newcommand{\thesistableofcontents}{
+    \thispagestyle{empty}
+    \pdfbookmark{目录}{toc}
+
+    \begin{center}
+        {\bfseries\zihao{3}\songti 目 \chinesespace 录} \\
+    \end{center}
+
+    \begin{flushright}
+        {\zihao{-4}\songti 论文总页数 \chinesecolon \pageref{LastPage} 页}
+    \end{flushright}
+
+    \tableofcontents
+
+    \setcounter{page}{0}
 }
