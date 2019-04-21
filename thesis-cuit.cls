@@ -284,7 +284,7 @@ bookmarksdepth=4
         }{}
     \begin{center}
         \clearpage
-        \bibliographystyle{plain}
+        \bibliographystyle{unsrt}
         {\zihao{5}\songti \bibliography{#2}}
     \end{center}
 }
