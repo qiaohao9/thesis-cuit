@@ -169,6 +169,7 @@ bookmarksdepth=4
 
     \thispagestyle{empty}
     \setcounter{page}{0}
+    \bookmarksetupnext{level=0}
     \clearpage
 }
 
@@ -213,13 +214,11 @@ bookmarksdepth=4
 
 \newenvironment{thesisacknowlegement}[1]{
     \addtocontents{toc}{}
-    
+    \addcontentsline{toc}{section}{致 \hspace{1em} 谢}
+    \pdfbookmark{致 \hspace{1em} 谢}{acknowlegement}
     \begin{center}
         \section*{致 \hspace{1em} 谢}
     \end{center}
-
-    \addcontentsline{toc}{section}{致 \hspace{1em} 谢}
-    \hypersetup{bookmarksdepth=0} 
 }{
     \vspace{3cm}
     \noindent
@@ -237,6 +236,7 @@ bookmarksdepth=4
 
 \newenvironment{thesisstatement}{
     \addtocontents{toc}{}
+    \pdfbookmark{声 \hspace{1em} 明}{statement}
     \renewcommand{\theenumi}{\arabic{enumi}}
     \renewcommand{\labelenumi}{（\theenumi）}
 
@@ -268,5 +268,29 @@ bookmarksdepth=4
         {\hfill 2019 年 06 月 \chinesespace 日}
 
     \addcontentsline{toc}{section}{声 \hspace{1em} 明}
-    \hypersetup{bookmarksdepth=0} 
 }{}
+
+\pretocmd{\bibliography}{
+  \thispagestyle{fancy}
+  \interlinepenalty=10000
+  \begin{spacing}{1.667}
+}{}{}
+
+\apptocmd{\bibliography}{
+  \end{spacing}
+}{}{}
+
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+\newcommand{\thesisloadbibliography}[2][]{
+    \addtocontents{toc}{}
+    \addcontentsline{toc}{section}{参考文献}
+    \pdfbookmark{参考文献}{bib}
+    \ifthenelse{
+        \equal{#1}{nocite}
+        }{
+        \nocite{*}
+        }{}
+    {\zihao{2}
+    \bibliographystyle{plain}
+    \bibliography{#2}}
+}
