@@ -17,15 +17,24 @@
     top=2.54cm, bottom=2.54cm]{geometry}
 \RequirePackage{indentfirst}
 \RequirePackage{lastpage}
-\RequirePackage{tocloft}
+\RequirePackage{etoolbox}
 \RequirePackage{titletoc}
 \RequirePackage{fancyhdr}
 \RequirePackage{array}
+\RequirePackage[titles, subfigure]{tocloft}
+\RequirePackage{subfigure}
+\RequirePackage{float}
+\RequirePackage{graphicx}
 \RequirePackage{layout}
+\RequirePackage{setspace}
+\RequirePackage[font={doublespacing, small}, labelsep=space, skip=6pt]{caption}
 \RequirePackage[hyperfootnotes=false,
 bookmarksnumbered,
 bookmarksdepth=4
 ]{hyperref}
+
+\urlstyle{rm}
+\raggedbottom
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -145,3 +154,29 @@ bookmarksdepth=4
     \setcounter{page}{0}
     \clearpage
 }
+
+\renewcommand{\thetable}{\arabic{section}-\arabic{table}}
+\renewcommand{\thefigure}{\arabic{section}-\arabic{figure}}
+
+\captionsetup{format=hang}
+\captionsetup[table]{belowskip=0pt}
+\captionsetup[figure]{aboveskip=0pt,belowskip=0pt}
+
+\makeatletter
+\AtBeginEnvironment{figure}{
+  \def\@floatboxreset{\centering\zihao{5}\songti}
+}
+\makeatother
+
+\makeatletter
+\AtBeginEnvironment{table}{
+  \def\@floatboxreset{\centering\zihao{5}\songti}
+}
+\makeatother
+\AtBeginEnvironment{tabular}{\zihao{-5}\songti}
+
+\makeatletter
+\renewcommand{\p@subfigure}{\arabic{section}-\arabic{figure}}
+\makeatother
+
+\graphicspath{{./pic/}}
