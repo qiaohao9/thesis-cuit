@@ -1,20 +1,6 @@
 \ProvidesClass{thesis-cuit}
 
-\LoadClass[12pt, openany, oneside, UTF8]{ctexbook}
-
-\usepackage{ifplatform}
-\ifmacosx
-    \setmainfont{Times New Roman}
-    \setCJKmainfont[AutoFakeBold=true]{Songti SC}
-    \newfontfamily{\kai}{Kaiti SC}
-    \newfontfamily{\hei}{Heiti SC}
-    \newfontfamily{\song}{Songti SC}
-\else
-    \setmainfont{Times New Roman}
-    \newfontfamily{\kai}{Kaiti SC}
-    \newfontfamily{\hei}{Heiti SC}
-    \newfontfamily{\song}{Songti SC}
-\fi
+\LoadClass{ctexart}
 
 \RequirePackage[
     left=3.17cm, right=3.17cm,
@@ -63,30 +49,25 @@ bookmarksdepth=4
 \newcommand{\makecover}{
     \thispagestyle{empty}
     \pdfbookmark{封面}{cover}
-%    \textbf{
-        \noindent
-        \textbf{{\zihao{-4}\song
-            分类号\chinesecolon \thecategorynumber \hspace{2.7in} UDC\chinesecolon \theudc \\
-            密\chinesespace 级\chinesecolon 公开 \hspace{3in} 编\chinesespace 号\chinesecolon \thestudentid
-        }} \\ [100bp]
 
-        \begin{center}
+    {\noindent\bfseries\zihao{-4}\songti
+        分类号\chinesecolon \thecategorynumber \hspace{2.7in} UDC\chinesecolon \theudc \\
+        密\chinesespace 级\chinesecolon 公开 \hspace{3in} 编\chinesespace 号\chinesecolon \thestudentid
+    } \\ [100bp]
 
-            \textbf{{\zihao{2}\ziju{0.5}\hei 成都信息工程大学 \\
-            学位论文} \\[64bp]
-            {\zihao{3}\song \thetitle}} \\[100bp]
+    \begin{center}
+        {\bfseries\zihao{2}\ziju{0.5}\heiti 成都信息工程大学 \\[0.5ex]
+        学位论文} \\[88bp]
+        {\bfseries\zihao{3}\songti \thetitle} \\[100bp]
 
-            \textbf{
-            \begin{tabular}{>{\zihao{-3}\kai}l
-                >{\centering\arraybackslash\zihao{-3}\kai}p{3.0in}}
-                {\ziju{0.5}论文作者姓名：} & \theauthor \\ \cline{2-2}
-                {\ziju{0.5}申请学位专业：} & \themajor \\ \cline{2-2}
-                {\ziju{0.5}申请学位类别：} & \thedegree \\ \cline{2-2}
-                指导教师姓名（职称）： & \theteacher \\ \cline{2-2}
-                {\ziju{0.5}论文提交日期：} & \thedate \\ \cline{2-2}
-            \end{tabular}}
-
-        \end{center}
-%    }
+        \begin{tabular}{>{\bfseries\zihao{-3}\kaishu}l
+            >{\centering\arraybackslash\bfseries\zihao{-3}\kaishu}p{3.0in}}
+            {\ziju{0.5}论文作者姓名：} & \theauthor \\ \cline{2-2}
+            {\ziju{0.5}申请学位专业：} & \themajor \\ \cline{2-2}
+            {\ziju{0.5}申请学位类别：} & \thedegree \\ \cline{2-2}
+            指导教师姓名（职称）： & \theteacher \\ \cline{2-2}
+            {\ziju{0.5}论文提交日期：} & \thedate \\ \cline{2-2}
+        \end{tabular}
+    \end{center}
 }
 
