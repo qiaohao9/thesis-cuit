@@ -20,6 +20,7 @@
 \RequirePackage{indentfirst}
 \RequirePackage{lastpage}
 \RequirePackage{etoolbox}
+\RequirePackage{enumitem}
 \RequirePackage{titletoc}
 \RequirePackage{fancyhdr}
 \RequirePackage{array}
@@ -233,3 +234,39 @@ bookmarksdepth=4
     \noindent
     E-mail: \theemail
 }
+
+\newenvironment{thesisstatement}{
+    \addtocontents{toc}{}
+    \renewcommand{\theenumi}{\arabic{enumi}}
+    \renewcommand{\labelenumi}{（\theenumi）}
+
+    \begin{center}
+        \section*{声 \hspace{1em} 明}
+    \end{center}
+
+        本论文的工作是20  年  月至20  年  月在成都信息工程大学学院完成的。文中除了特别加以标注地方外，不包含他人已经发表或撰写过的研究成果，也不包含为获得成都信息工程大学或其他教学机构的学位或证书而使用过的材料。
+
+        关于学位论文使用权和研究成果知识产权的说明：
+
+        本人完全了解成都信息工程大学有关保管使用学位论文的规定，其中包括：
+
+        \begin{enumerate}[itemindent=4em]
+            \item 学校有权保管并向有关部门递交学位论文的原件与复印件。
+            \item 学校可以采用影印、缩印或其他复制方式保存学位论文。
+            \item 学校可以学术交流为目的复制、赠送和交换学位论文。
+            \item 学校可允许学位论文被查阅或借阅。
+            \item 学校可以公布学位论文的全部或部分内容（保密学位论文在解密后遵守此规定）。
+        \end{enumerate}
+
+        除非另有科研合同和其他法律文书的制约，本论文的科研成果属于成都信息工程大学。
+
+        特此声明！
+
+        \vspace{3cm}
+        {\hfill 作者签名：\hspace{2cm}}
+
+        {\hfill 2019 年 06 月 \chinesespace 日}
+
+    \addcontentsline{toc}{section}{声 \hspace{1em} 明}
+    \hypersetup{bookmarksdepth=0} 
+}{}
