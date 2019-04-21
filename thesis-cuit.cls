@@ -7,6 +7,9 @@
 
 \LoadClass{ctexart}
 
+\RequirePackage{ifxetex}
+\RequireXeTeX
+
 \setmainfont{Times New Roman}
 
 \RequirePackage[
@@ -14,24 +17,21 @@
     top=2.54cm, bottom=2.54cm]{geometry}
 \RequirePackage{indentfirst}
 \RequirePackage{lastpage}
-
 \RequirePackage{tocloft}
 \RequirePackage{titletoc}
 \RequirePackage{fancyhdr}
 \RequirePackage{array}
 \RequirePackage{layout}
+\RequirePackage[hyperfootnotes=false,
+bookmarksnumbered,
+bookmarksdepth=4
+]{hyperref}
 
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \fancyfoot[C]{第 \thepage 页 \chinesespace 共 \pageref{LastPage} 页}
 \setlength{\parindent}{2em} % 首行缩进
-
-
-\RequirePackage[hyperfootnotes=false,
-bookmarksnumbered,
-bookmarksdepth=4
-]{hyperref}
 
 \hypersetup{
     colorlinks=true,
@@ -40,9 +40,10 @@ bookmarksdepth=4
     urlcolor=black
 }
 
-\CTEXsetup[format={\bfseries\songti\zihao{-3}}, indent={0em}, aftername={\ }, afterskip={0.5ex}]{section}
-\CTEXsetup[format={\bfseries\songti\zihao{4}}, indent={1em}, aftername={\ }, afterskip={0.5ex}]{subsection}
-\CTEXsetup[format={\bfseries\songti\zihao{-4}}, indent={2em}, aftername={\ }, afterskip={0.5ex}]{subsubsection}
+\ctexset{section={format={\bfseries\songti\zihao{-3}}, indent={0em}, aftername={\ }, afterskip={0.5ex}}}
+\ctexset{subsection={format={\bfseries\songti\zihao{4}}, indent={1em}, aftername={\ }, afterskip={0.5ex}}}
+\ctexset{subsubsection={format={\bfseries\songti\zihao{-4}}, indent={2em}, aftername={\ }, afterskip={0.5ex}}}
+
 
 \newcommand{\chinesecolon}{\char"FF1A}
 \newcommand{\chinesespace}{\char"3000}
