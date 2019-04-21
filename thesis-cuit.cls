@@ -1,6 +1,7 @@
 % TODO
 % 1. 行距
 % 2. pdfbookmark 错乱
+% 3. 参考文献
 
 
 \ProvidesClass{thesis-cuit}
@@ -8,6 +9,7 @@
 \LoadClass{ctexart}
 
 \RequirePackage{ifxetex}
+\RequirePackage{ifthen}
 \RequireXeTeX
 
 \setmainfont{Times New Roman}
@@ -63,9 +65,16 @@ bookmarksdepth=4
 \newcommand{\thedegree}{}
 \newcommand{\theteacher}{}
 \newcommand{\thedate}{}
+
 \newcommand{\thecategorynumber}{}
 \newcommand{\theudc}{}
 \newcommand{\thestudentid}{}
+
+\newcommand{\theinfo}{}
+\newcommand{\thegender}{}
+\newcommand{\thegroup}{}
+\newcommand{\thebirthday}{}
+\newcommand{\theemail}{}
 
 \renewcommand{\title}[1]{\renewcommand{\thetitle}{#1}}
 \renewcommand{\author}[1]{\renewcommand{\theauthor}{#1}}
@@ -73,9 +82,16 @@ bookmarksdepth=4
 \newcommand{\major}[1]{\renewcommand{\themajor}{#1}}
 \newcommand{\degree}[1]{\renewcommand{\thedegree}{#1}}
 \newcommand{\teacher}[1]{\renewcommand{\theteacher}{#1}}
+
 \newcommand{\categorynumber}[1]{\renewcommand{\thecategorynumber}{\texttt{#1}}}
 \newcommand{\udc}[1]{\renewcommand{\theudc}{\texttt{#1}}}
 \newcommand{\studentid}[1]{\renewcommand{\thestudentid}{\texttt{#1}}}
+
+\newcommand{\info}[1]{\renewcommand{\theinfo}{#1}}
+\newcommand{\gender}[1]{\renewcommand{\thegender}{#1}}
+\newcommand{\group}[1]{\renewcommand{\thegroup}{#1}}
+\newcommand{\birthday}[1]{\renewcommand{\thebirthday}{\texttt{#1}}}
+\newcommand{\email}[1]{\renewcommand{\theemail}{\texttt{#1}}}
 
 \newcommand{\makecover}{
     \thispagestyle{empty}
@@ -180,3 +196,40 @@ bookmarksdepth=4
 \makeatother
 
 \graphicspath{{./pic/}}
+
+
+\newcommand{\thesissummary}{
+    \addtocontents{toc}{}
+    \setcounter{section}{0}
+
+    \begin{center}
+        \section*{结 \hspace{1em} 语}
+    \end{center}
+
+    \addcontentsline{toc}{section}{结 \hspace{1em} 语}
+    \hypersetup{bookmarksdepth=0} 
+}
+
+\newenvironment{thesisacknowlegement}[1]{
+    \addtocontents{toc}{}
+    
+    \begin{center}
+        \section*{致 \hspace{1em} 谢}
+    \end{center}
+
+    \addcontentsline{toc}{section}{致 \hspace{1em} 谢}
+    \hypersetup{bookmarksdepth=0} 
+}{
+    \vspace{3cm}
+    \noindent
+    作者简介\chinesecolon \theinfo
+
+    \noindent
+    姓 \hspace{1.5em} 名\chinesecolon \theauthor \hfill 性别 \chinesecolon \thegender 
+
+    \noindent
+    出生年月\chinesecolon \thebirthday \hfill 民族 \chinesecolon \thegroup 
+
+    \noindent
+    E-mail: \theemail
+}
