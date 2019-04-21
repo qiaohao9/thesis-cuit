@@ -6,7 +6,12 @@
 
 \ProvidesClass{thesis-cuit}
 
-\LoadClass{ctexart}
+\LoadClass[UTF8, a4paper, AutoFakeBold]{ctexart}
+
+\ctexset{
+    autoindent={2em}
+}
+\linespread{1.389}
 
 \RequirePackage{ifxetex}
 \RequirePackage{ifthen}
@@ -17,9 +22,7 @@
 \RequirePackage[
     left=3.17cm, right=3.17cm,
     top=2.54cm, bottom=2.54cm]{geometry}
-\RequirePackage{indentfirst}
 \RequirePackage{lastpage}
-% \RequirePackage{titlesec}
 \RequirePackage{etoolbox}
 \RequirePackage{enumitem}
 \RequirePackage{titletoc}
@@ -108,8 +111,9 @@ bookmarksdepth=4
     \begin{center}
         {\bfseries\zihao{2}\ziju{0.5}\heiti 成都信息工程大学 \\[0.5ex]
         学位论文} \\[88bp]
-        {\bfseries\zihao{3}\songti \thetitle} \\[100bp]
+        {\bfseries\zihao{3}\songti \thetitle} \\[150bp]
 
+        {\linespread{2}
         \begin{tabular}{>{\bfseries\zihao{-3}\kaishu}l
             >{\centering\arraybackslash\bfseries\zihao{-3}\kaishu}p{3.0in}}
             {\ziju{0.5}论文作者姓名：} & \theauthor \\ \cline{2-2}
@@ -117,7 +121,7 @@ bookmarksdepth=4
             {\ziju{0.5}申请学位类别：} & \thedegree \\ \cline{2-2}
             指导教师姓名（职称）： & \theteacher \\ \cline{2-2}
             {\ziju{0.5}论文提交日期：} & \thedate \\ \cline{2-2}
-        \end{tabular}
+        \end{tabular}}
     \end{center}
 }
 
@@ -126,11 +130,12 @@ bookmarksdepth=4
     \pdfbookmark{中文摘要}{chineseabstract}
 
     \begin{center}
-        {\zihao{3}\bfseries \thetitle \\
+        {\zihao{3}\bfseries \thetitle \\[1ex]
         摘 \chinesespace 要}
     \end{center}
 }{}
 \newcommand{\chinesekeywords}[1]{
+    \vspace{\baselineskip}
     {\bfseries 关键字 \chinesecolon} #1
 }
 
@@ -139,11 +144,12 @@ bookmarksdepth=4
     \pdfbookmark{英文摘要}{englishabstract}
     
     \begin{center}
-        {\bfseries\zihao{3} #1 \\
+        {\bfseries\zihao{3} #1 \\[1ex]
         Abstract}
     \end{center}
 }{}
 \newcommand{\englishkeywords}[1]{
+    \vspace{\baselineskip}
     {\bfseries Key words:} #1
 }
 
