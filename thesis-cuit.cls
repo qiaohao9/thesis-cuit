@@ -79,10 +79,23 @@ bookmarksdepth=4
     \pdfbookmark{中文摘要}{chineseabstract}
 
     \begin{center}
-        {\zihao{3}\bfseries\songti \thetitle \\
+        {\zihao{3}\bfseries \thetitle \\
         摘 \chinesespace 要}
     \end{center}
 }{}
 \newcommand{\chinesekeywords}[1]{
-    {\bfseries\songti\zihao{-4}关键字 \chinesecolon} #1
+    {\bfseries 关键字 \chinesecolon} #1
+}
+
+\newenvironment{englishabstract}[1]{
+    \thispagestyle{empty}
+    \pdfbookmark{英文摘要}{englishabstract}
+    
+    \begin{center}
+        {\bfseries\zihao{3} #1 \\
+        Abstract}
+    \end{center}
+}{}
+\newcommand{\englishkeywords}[1]{
+    {\bfseries Key words:} #1
 }
