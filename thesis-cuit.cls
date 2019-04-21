@@ -1,9 +1,3 @@
-% TODO
-% 1. 行距
-% 2. pdfbookmark 错乱
-% 3. 参考文献
-
-
 \ProvidesClass{thesis-cuit}
 
 \LoadClass[UTF8, a4paper, AutoFakeBold]{ctexart}
