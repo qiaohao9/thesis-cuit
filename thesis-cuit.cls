@@ -98,8 +98,8 @@ bookmarksdepth=4
     \pdfbookmark{封面}{cover}
 
     {\noindent\bfseries\zihao{-4}\songti
-        分类号\chinesecolon \thecategorynumber \hspace{2.7in} UDC\chinesecolon \theudc \\
-        密\chinesespace 级\chinesecolon 公开 \hspace{3in} 编\chinesespace 号\chinesecolon \thestudentid
+        分类号\chinesecolon \thecategorynumber \hfill UDC\chinesecolon \theudc \\
+        密\chinesespace 级\chinesecolon 公开 \hfill 编\chinesespace 号\chinesecolon \thestudentid
     } \\ [100bp]
 
     \begin{center}
