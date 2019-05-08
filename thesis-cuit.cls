@@ -29,6 +29,7 @@
 \RequirePackage{layout}
 \RequirePackage{natbib}
 \RequirePackage{setspace}
+\RequirePackage[bottom]{footmisc}
 \RequirePackage[font={doublespacing, small}, labelsep=space, skip=6pt]{caption}
 \RequirePackage[hyperfootnotes=false,
 bookmarksnumbered,
@@ -245,7 +246,7 @@ bookmarksdepth=4
         \section*{声 \hspace{1em} 明}
     \end{center}
 
-        本论文的工作是20  年  月至20  年  月在成都信息工程大学学院完成的。文中除了特别加以标注地方外，不包含他人已经发表或撰写过的研究成果，也不包含为获得成都信息工程大学或其他教学机构的学位或证书而使用过的材料。
+        本论文的工作是 2019 年 05 月至 2019 年 06 月在成都信息工程大学学院完成的。文中除了特别加以标注地方外，不包含他人已经发表或撰写过的研究成果，也不包含为获得成都信息工程大学或其他教学机构的学位或证书而使用过的材料。
 
         关于学位论文使用权和研究成果知识产权的说明：
 
