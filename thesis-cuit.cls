@@ -22,9 +22,9 @@
 \RequirePackage{titletoc}
 \RequirePackage{fancyhdr}
 \RequirePackage{array}
-\RequirePackage[titles, subfigure]{tocloft}
-\RequirePackage{subfigure}
 \RequirePackage{float}
+\RequirePackage[titles, subfigure]{tocloft}
+\RequirePackage[small]{subfigure}
 \RequirePackage{graphicx}
 \RequirePackage{layout}
 \RequirePackage{natbib}
